@@ -26,7 +26,7 @@ $idPost= $consulta->fetchAll(\PDO::FETCH_ASSOC);
     </div>
   </nav>
 </header>
-<body style="background: url(../assets/tecnologiaBG.png);">
+<body style="background: url(resources/assets/tecnologiaBG.png);">
   <br><br><br><br>
 <!-- ---------------------------------------------------
                     CONTENIDO
@@ -106,7 +106,7 @@ $idPost= $consulta->fetchAll(\PDO::FETCH_ASSOC);
         <p class="text-center text-muted">&copy; {{< year >}} Company, Inc</p>
         </div>
       </footer>
-  <script type="text/javascript" src="../js/menu.js"></script>
-  <script src="../js/bootstrap.bundle.min.js"></script>
+  <script type="text/javascript" src="resources/js/menu.js"></script>
+  <script src="resources/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

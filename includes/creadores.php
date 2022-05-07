@@ -40,7 +40,7 @@
         </div>
         <div class="col-auto col-md-4"> <!-- Tercera columna -->
           <div class="colore-carta3 card border border-secondary"> <!-- Aqui se pone la tarjeta de autor -->
-          <img src="../assets/nosotros.png" class="card-img-top border border-5" alt="...">
+          <img src="resources/assets/nosotros.png" class="card-img-top border border-5" alt="...">
           <div class="card-body">
             <p class="card-text"><small class="text-muted">Creadores</small></p>
           </div>
@@ -73,7 +73,7 @@
         <p class="text-center text-muted">&copy; {{< year >}} Company, Inc</p>
         </div>
       </footer>
-<script src="../js/bootstrap.bundle.min.js"></script>
-<script type="text/javascript" src="../js/menu.js"></script>
+<script src="resources/js/bootstrap.bundle.min.js"></script>
+<script type="text/javascript" src="resources/js/menu.js"></script>
 </body>
 </html>

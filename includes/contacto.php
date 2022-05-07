@@ -32,7 +32,7 @@
             <div class="card mb-3 text-dark bg-light mb-3 border border-secondary p-3 mb-">
               <div class="row g-0">
                 <div class="col-md-3 justify-content-md-center">
-                  <img src="../assets/coding.png" style="width: 100px" class="" alt="...">
+                  <img src="resources/assets/coding.png" style="width: 100px" class="" alt="...">
                 </div>
                 <div class="col-md-6">
                   <div class="card-body">
@@ -45,7 +45,7 @@
             <div class="card mb-3 text-dark bg-light mb-3 border border-secondary p-3 mb-">
               <div class="row g-0">
                 <div class="col-md-3">
-                  <img src="../assets/coding.png" style="width: 100px" class="" alt="...">
+                  <img src="resources/assets/coding.png" style="width: 100px" class="" alt="...">
                 </div>
                 <div class="col-md-6">
                   <div class="card-body">
@@ -58,7 +58,7 @@
             <div class="card mb-3 text-dark bg-light mb-3 border border-secondary p-3 mb-">
               <div class="row g-0">
                 <div class="col-md-3">
-                  <img src="../assets/developer.png" style="width: 100px" class="" alt="...">
+                  <img src="resources/assets/developer.png" style="width: 100px" class="" alt="...">
                 </div>
                 <div class="col-md-8">
                   <div class="card-body">
@@ -71,7 +71,7 @@
             <div class="card mb-3 text-dark bg-light mb-3 border border-secondary p-3 mb-">
               <div class="row g-0">
                 <div class="col-md-3">
-                  <img src="../assets/internet.png" style="width: 100px" class="" alt="...">
+                  <img src="resources/assets/internet.png" style="width: 100px" class="" alt="...">
                 </div>
                 <div class="col-md-6">
                   <div class="card-body">
@@ -126,7 +126,7 @@
         <p class="text-center text-muted">&copy; {{< year >}} Company, Inc</p>
         </div>
       </footer>
-<script type="text/javascript" src="../js/menu.js"></script>
-<script src="../js/bootstrap.bundle.min.js"></script>
+<script type="text/javascript" src="resources/js/menu.js"></script>
+<script src="resources/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
