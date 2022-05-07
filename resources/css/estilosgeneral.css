@@ -2,7 +2,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Questrial&display=swap');
 body{
     background-color: #2b6684;
-    background-image:url('../imagenes/fondo1.png');
+    background-image:url('../assets/fondo1.png');
     font-family: 'Questrial', sans-serif;
 }
 .imgs{
@@ -32,6 +32,7 @@ h2 {
     background-size: 100% 300%;
 
     animation: textReflect infinite ease-in-out 2.5s; 
+    -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     -webkit-text-stroke: 4px #eae100;
 }

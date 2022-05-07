@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="resources/css/bootstrap.min.css">
     <link href="resources/css/estilosgeneral.css" rel="stylesheet">
-    <link href="resources/imagenes/favicon.ico" rel="icon">
+    <link href="resources/assets/favicon.ico" rel="icon">
     <title>Mexicanadas</title>
 </head>
 <body>
@@ -21,7 +21,7 @@
     <!-- Contenido -->
     <div class="container-xl">
         <div class="row">
-            <div class="p-2 p-md-3 mb-2 text-white rounded bg-">
+            <div class="p-2 p-md-3 mb-2 text-white rounded bg- mt-3">
                 <p class="textcoloraized">N O T I C I A S</p>
             </div>      
         </div>
@@ -38,7 +38,7 @@
                     </div>
                 </nav>
                 <div class="colore-carta3 card border border-secondary"> <!-- Aqui se pone la tarjeta de autor -->
-                    <img src="resources/imagenes/nosotros.png" class="card-img-top border border-5" alt="...">
+                    <img src="resources/assets/nosotros.png" class="card-img-top border border-5" alt="...">
                     <div class="colore-carta3 card-body">
                         <h5 class="card-title">¡NOSOTROS SOMOS!</h5>
                         <p class="card-text"><small class="text-muted">C R E A D O R E S</small></p>
