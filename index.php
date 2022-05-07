@@ -1,3 +1,4 @@
+<?php require 'includes/database.php';?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -36,7 +37,6 @@
                         </form>
                     </div>
                 </nav>
-
                 <div class="colore-carta3 card border border-secondary"> <!-- Aqui se pone la tarjeta de autor -->
                     <img src="resources/imagenes/nosotros.png" class="card-img-top border border-5" alt="...">
                     <div class="colore-carta3 card-body">
@@ -54,37 +54,29 @@
                     </div>
                 </div>
             </div>
-
-        <div class="col-sm-1"> <!-- segunda columna--></div>
+            <div class="col-sm-1"> <!-- segunda columna--></div>
             <div class="col-sm-7 mb-2"> <!-- tercera columna-->
-                <div class="card border-secondary mb-2">
-                    <img src="<?php echo substr($lisId['image'],0) ?>" class="imgs">
-                    <div class="colore-carta3 card-body">
-                    <div class="card-title fw-bold">
-                        <?php echo $lisId["created_at"]?>
+                <?php
+                    $txtid=(isset($_POST['txtid'])?$_POST['txtid']:"");
+                    $numPosts = "SELECT id, title, autor, description, created_at, image FROM post WHERE id=1 ORDER BY id ASC limit 0,2";
+                    $consulta= $conn->query($numPosts);
+                    $idPost= $consulta->fetchAll(\PDO::FETCH_ASSOC);
+                ?>
+                <?php foreach ($idPost as $lisId) { ?>
+                    <div class="card border-secondary mb-2">
+                        <img src="<?php echo substr($lisId['image'],0) ?>" class="imgs">
+                        <div class="colore-carta3 card-body">
+                            <div class="card-title fw-bold"><?php echo $lisId["created_at"]?></div>
+                            <h5><div class="card-title fw-bold"><?php echo $lisId["title"]?></div></h5>
+                            <h5><div class="card-title fw-bold fs-6">Autor: <?php echo $lisId["autor"]?></div></h5>
+                            <p class="card-text"><?php echo $lisId["description"]?></p>
+                            <form method="post" action="articulo.php"> 
+                                <input type="hidden" name="txtid" id="txtid" value="<?php echo $lisId['id']; ?>" />
+                                <input type="submit" name="accion" value="Ver más..." class="btn btn-primary mt-3"/>
+                            </form>
                         </div>
-                        <h5> 
-                        <div class="card-title fw-bold">
-                        <?php echo $lisId["title"]?>
-                        
-                        </div>
-                        </h5>
-                        <h5>
-                        <div class="card-title fw-bold fs-6">Autor:
-                            <?php echo $lisId["autor"]?>
-                        </div>
-                        </h5>
-                        <p class="card-text">
-                            <?php echo $lisId["description"]?>
-                        </p>
-                        <form method="post" action="articulo.php"> 
-                        <input type="hidden" name="txtid" id="txtid" value="<?php echo $lisId['id']; ?>" />
-                        <input type="submit" name="accion" value="Ver más..." class="btn btn-primary mt-3"/>
-                        </form>
-                        </div>
-                        </div>
-                        <br>
-                </div>
+                    </div>
+                <?php } ?>
             </div>
         </div>
     </div>
@@ -98,7 +90,7 @@
           <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">FAQs</a></li>
           <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">About</a></li>
         </ul>
-        <p class="text-center text-muted">&copy; {{< year >}} Company, Inc</p>
+        <p class="text-center text-muted">&copy; Company, Inc</p>
         </div>
     </footer>
     <!-- Scripts -->
