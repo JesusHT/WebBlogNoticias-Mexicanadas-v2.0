@@ -63,3 +63,8 @@ h2 {
     background-color: #121215;
     color: #FFFFFF
  }
+
+ .mx-auto {
+    margin-right: auto!important;
+    margin-left: 0!important;
+ }
