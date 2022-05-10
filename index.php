@@ -282,7 +282,7 @@
                         <p class="textcoloraized">C O N T A C T O</p>
                         </div>
                         <div class="colore-carta card text-dark bg-light mb-3 border border-secondary p-3 mb-5">
-                        <form method="post" action="./enviarContacto.php">
+                        <form method="post" action="includes/enviarContacto.php">
                             <label for="" class="form-label">Nombre</label>
                             <input class="form-control mb-2" name="name" type="text" required>
                             <label type="email"for="" class="form-label">Correo electronico</label>
