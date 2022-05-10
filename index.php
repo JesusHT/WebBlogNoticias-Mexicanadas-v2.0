@@ -1,4 +1,4 @@
-<?php require 'includes/database.php';?>
+<?php require 'includes/database.php'; require 'includes/orden.php';?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -83,13 +83,7 @@
                     </div>
                     <div class="col-sm-1"> <!-- segunda columna--></div>
                     <div class="col-sm-7 mb-2"> <!-- tercera columna-->
-                        <?php
-                            $txtid=(isset($_POST['txtid'])?$_POST['txtid']:"");
-                            $numPosts = "SELECT id, title, autor, description, created_at, image FROM post WHERE id=1 ORDER BY id ASC limit 0,2";
-                            $consulta= $conn->query($numPosts);
-                            $idPost= $consulta->fetchAll(\PDO::FETCH_ASSOC);
-                        ?>
-                        <?php foreach ($idPost as $lisId) { ?>
+                        <?php foreach ($general as $lisId) { ?>
                             <div class="card border-secondary mb-2">
                                 <img src="<?php echo substr($lisId['image'],0) ?>" class="imgs">
                                 <div class="colore-carta3 card-body">
@@ -109,11 +103,6 @@
             </div>
         </div>
         <div class="tab-pane fade" id="pills-politica" role="tabpanel" aria-labelledby="pills-politica-tab">
-            <?php
-                $numPosts = "SELECT id, title, description, image  FROM post WHERE category_id=1 AND status=1 ORDER BY id ASC limit 0,4 ";
-                $consulta= $conn->query($numPosts);
-                $idPost= $consulta->fetchAll(\PDO::FETCH_ASSOC);
-            ?>
             <div class="container-xl">
                 <div class="row">
                     <div class="p-2 p-md-3 mb-2 text-white rounded bg- mt-3"><p class="textcoloraized">P O L I T I C A</p></div>      
@@ -122,29 +111,12 @@
             <div class="container-sm mb-4">
                 <div class="row justify-content-md-center">
                     <div class="col-auto col-md-4"> <!-- Primera columna-->
-                        <h2 class="text-center">Sugerencias</h2>
-                        <nav class="navbar navbar-light bg-light shadow-sm p-3 mb-5 bg-body rounded border border-secondary"> <!-- Aqui se pone el buscador -->
-                            <div class="container-fluid">
-                                <form class="d-flex">
-                                    <input class="form-control me-2" type="search" placeholder="Buscar" aria-label="Search">
-                                    <button class="btn btn-outline-success" type="submit">Buscar</button>
-                                </form>
-                            </div>
-                        </nav>
-                        <?php for ($i=0;$i < 6; $i++): ?>
-                            <div class="card shadow-sm bg-body rounded border border-secondary mb-2">
-                                <img class="card-img-top" src="https://www.elfinanciero.com.mx/resizer/kgNM8XLpTdoJxt3kF5qvXksqQ9s=/400x225/filters:format(jpg):quality(70)/cloudfront-us-east-1.images.arcpublishing.com/elfinanciero/MG7PQV7DNVDG5PPBCSUPR5MCHY.jpeg">
-                                <div class="colore-carta3 card-body">
-                                    <h5 class="card-title">Titulo del articulo</h5>
-                                    <p class="card-text">Contenido del articulo.</p>
-                                    <a href="#" class="btn btn-primary">Más</a>
-                                </div>
-                            </div>
-                        <?php endfor ?>
+                        <!-- Sugerencias -->
+                        <?php require 'includes/sugerencias.php';?>
                     </div>
                     <div class="col-sm-1"></div>
                     <div class="col-sm-7">
-                        <?php foreach ($idPost as $lisId) { ?>
+                        <?php foreach ($Politica as $lisId) { ?>
                             <div class="card border-secondary mt-4 mb-2">
                                 <div class="colore-carta card-body">
                                     <h5 class="card-title"><?php echo $lisId['title']?></h5>
@@ -162,11 +134,6 @@
             </div>
         </div>
         <div class="tab-pane fade" id="pills-tecnologia" role="tabpanel" aria-labelledby="pills-tecnologia-tab">
-            <?php
-                $numPosts = "SELECT id, title, description, image  FROM post WHERE category_id=2 AND status=1 ORDER BY id ASC limit 0,4 ";
-                $consulta= $conn->query($numPosts);
-                $idPost= $consulta->fetchAll(\PDO::FETCH_ASSOC);
-            ?>
             <div class="container-xl">
                 <div class="row">
                     <div class="p-2 p-md-3 mb-2 text-white rounded bg- mt-3"><p class="textcoloraized">T E C N O L O G Í A</p></div>      
@@ -175,29 +142,12 @@
             <div class="container-sm mb-4">
                 <div class="row justify-content-md-center">
                     <div class="col-auto col-md-4"> <!-- Primera columna-->
-                        <h2 class="text-center">Sugerencias</h2>
-                        <nav class="navbar navbar-light bg-light shadow-sm p-3 mb-5 bg-body rounded border border-secondary"> <!-- Aqui se pone el buscador -->
-                            <div class="container-fluid">
-                                <form class="d-flex">
-                                    <input class="form-control me-2" type="search" placeholder="Buscar" aria-label="Search">
-                                    <button class="btn btn-outline-success" type="submit">Buscar</button>
-                                </form>
-                            </div>
-                        </nav>
-                        <?php for ($i=0;$i < 6; $i++): ?>
-                            <div class="card shadow-sm bg-body rounded border border-secondary mb-2">
-                                <img class="card-img-top" src="https://www.elfinanciero.com.mx/resizer/kgNM8XLpTdoJxt3kF5qvXksqQ9s=/400x225/filters:format(jpg):quality(70)/cloudfront-us-east-1.images.arcpublishing.com/elfinanciero/MG7PQV7DNVDG5PPBCSUPR5MCHY.jpeg">
-                                <div class="colore-carta3 card-body">
-                                    <h5 class="card-title">Titulo del articulo</h5>
-                                    <p class="card-text">Contenido del articulo.</p>
-                                    <a href="#" class="btn btn-primary">Más</a>
-                                </div>
-                            </div>
-                        <?php endfor ?>
+                        <!-- Sugerencias -->
+                        <?php require 'includes/sugerencias.php';?>
                     </div>
                     <div class="col-sm-1"></div>
                     <div class="col-sm-7">
-                        <?php foreach ($idPost as $lisId) { ?>
+                        <?php foreach ($tecnologia as $lisId) { ?>
                             <div class="card border-secondary mt-4 mb-2">
                                 <div class="colore-carta card-body">
                                     <h5 class="card-title"><?php echo $lisId['title']?></h5>
@@ -215,11 +165,6 @@
             </div>
         </div>
         <div class="tab-pane fade" id="pills-deportes" role="tabpanel" aria-labelledby="pills-deportes-tab">
-            <?php
-                $numPosts = "SELECT id, title, description, image  FROM post WHERE category_id=3 AND status=1 ORDER BY id ASC limit 0,4 ";
-                $consulta= $conn->query($numPosts);
-                $idPost= $consulta->fetchAll(\PDO::FETCH_ASSOC);
-            ?>
             <div class="container-xl">
                 <div class="row">
                     <div class="p-2 p-md-3 mb-2 text-white rounded bg- mt-3"><p class="textcoloraized">D E P O R T E S</p></div>      
@@ -228,29 +173,12 @@
             <div class="container-sm mb-4">
                 <div class="row justify-content-md-center">
                     <div class="col-auto col-md-4"> <!-- Primera columna-->
-                        <h2 class="text-center">Sugerencias</h2>
-                        <nav class="navbar navbar-light bg-light shadow-sm p-3 mb-5 bg-body rounded border border-secondary"> <!-- Aqui se pone el buscador -->
-                            <div class="container-fluid">
-                                <form class="d-flex">
-                                    <input class="form-control me-2" type="search" placeholder="Buscar" aria-label="Search">
-                                    <button class="btn btn-outline-success" type="submit">Buscar</button>
-                                </form>
-                            </div>
-                        </nav>
-                        <?php for ($i=0;$i < 6; $i++): ?>
-                            <div class="card shadow-sm bg-body rounded border border-secondary mb-2">
-                                <img class="card-img-top" src="https://www.elfinanciero.com.mx/resizer/kgNM8XLpTdoJxt3kF5qvXksqQ9s=/400x225/filters:format(jpg):quality(70)/cloudfront-us-east-1.images.arcpublishing.com/elfinanciero/MG7PQV7DNVDG5PPBCSUPR5MCHY.jpeg">
-                                <div class="colore-carta3 card-body">
-                                    <h5 class="card-title">Titulo del articulo</h5>
-                                    <p class="card-text">Contenido del articulo.</p>
-                                    <a href="#" class="btn btn-primary">Más</a>
-                                </div>
-                            </div>
-                        <?php endfor ?>
+                        <!-- Sugerencias -->
+                        <?php require 'includes/sugerencias.php';?>
                     </div>
                     <div class="col-sm-1"></div>
                     <div class="col-sm-7">
-                        <?php foreach ($idPost as $lisId) { ?>
+                        <?php foreach ($deportes as $lisId) { ?>
                             <div class="card border-secondary mt-4 mb-2">
                                 <div class="colore-carta card-body">
                                     <h5 class="card-title"><?php echo $lisId['title']?></h5>
@@ -268,11 +196,6 @@
             </div>
         </div>
         <div class="tab-pane fade" id="pills-cultura" role="tabpanel" aria-labelledby="pills-cultura-tab">
-            <?php
-                $numPosts = "SELECT id, title, description, image  FROM post WHERE category_id=4 AND status=1 ORDER BY id ASC limit 0,4 ";
-                $consulta= $conn->query($numPosts);
-                $idPost= $consulta->fetchAll(\PDO::FETCH_ASSOC);
-            ?>
             <div class="container-xl">
                 <div class="row">
                     <div class="p-2 p-md-3 mb-2 text-white rounded bg- mt-3"><p class="textcoloraized">C U L T U R A</p></div>      
@@ -281,29 +204,12 @@
             <div class="container-sm mb-4">
                 <div class="row justify-content-md-center">
                     <div class="col-auto col-md-4"> <!-- Primera columna-->
-                        <h2 class="text-center">Sugerencias</h2>
-                        <nav class="navbar navbar-light bg-light shadow-sm p-3 mb-5 bg-body rounded border border-secondary"> <!-- Aqui se pone el buscador -->
-                            <div class="container-fluid">
-                                <form class="d-flex">
-                                    <input class="form-control me-2" type="search" placeholder="Buscar" aria-label="Search">
-                                    <button class="btn btn-outline-success" type="submit">Buscar</button>
-                                </form>
-                            </div>
-                        </nav>
-                        <?php for ($i=0;$i < 6; $i++): ?>
-                            <div class="card shadow-sm bg-body rounded border border-secondary mb-2">
-                                <img class="card-img-top" src="https://www.elfinanciero.com.mx/resizer/kgNM8XLpTdoJxt3kF5qvXksqQ9s=/400x225/filters:format(jpg):quality(70)/cloudfront-us-east-1.images.arcpublishing.com/elfinanciero/MG7PQV7DNVDG5PPBCSUPR5MCHY.jpeg">
-                                <div class="colore-carta3 card-body">
-                                    <h5 class="card-title">Titulo del articulo</h5>
-                                    <p class="card-text">Contenido del articulo.</p>
-                                    <a href="#" class="btn btn-primary">Más</a>
-                                </div>
-                            </div>
-                        <?php endfor ?>
+                        <!-- Sugerencias -->
+                        <?php require 'includes/sugerencias.php';?>
                     </div>
                     <div class="col-sm-1"></div>
                     <div class="col-sm-7">
-                        <?php foreach ($idPost as $lisId) { ?>
+                        <?php foreach ($cultura as $lisId) { ?>
                             <div class="card border-secondary mt-4 mb-2">
                                 <div class="colore-carta card-body">
                                     <h5 class="card-title"><?php echo $lisId['title']?></h5>
@@ -355,52 +261,19 @@
             <div class="container-sm mt-5">
                 <div class="row justify-content-md-center">
                     <div class="col-auto col-md-5"> <!-- Primera columna-->
-                        <div class="card mb-3 text-dark bg-light mb-3 border border-secondary p-3 mb-">
+                    <?php foreach ($datos as $dato){ ?>
+                        <div class="card mb-3 text-dark bg-light mb-3 border border-secondary p-3 mb-3">
                             <div class="row g-0">
-                                <div class="col-md-3 justify-content-md-center"><img src="resources/assets/coding.png" style="width: 100px" class="" alt="..."></div>
+                                <div class="col-md-3"><img src="resources/assets/<?php echo $dato["ruta"];?>" style="width: 100px" alt="..."></div>
                                 <div class="col-md-6">
                                     <div class="card-body">
-                                        <h5 class="card-title">Chipres Arteaga Juan Pablo</h5>
-                                        <p class="card-text"><small class="text-muted">Programador</small></p>
+                                        <h5 class="card-title"><?php echo $dato["nombre"];?></h5>
+                                        <p class="card-text"><small class="text-muted"><?php echo $dato["rol"];?></small></p>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="card mb-3 text-dark bg-light mb-3 border border-secondary p-3 mb-">
-                            <div class="row g-0">
-                                <div class="col-md-3">
-                                <img src="resources/assets/coding.png" style="width: 100px" class="" alt="...">
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="card-body">
-                                        <h5 class="card-title">Flores Alcalá Anayansi Valeria</h5>
-                                        <p class="card-text"><small class="text-muted">Programadora</small></p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="card mb-3 text-dark bg-light mb-3 border border-secondary p-3 mb-">
-                            <div class="row g-0">
-                                <div class="col-md-3"><img src="resources/assets/developer.png" style="width: 100px" class="" alt="..."></div>
-                                <div class="col-md-8">
-                                    <div class="card-body">
-                                        <h5 class="card-title">Gutiérrez Bejarano Braulio Roberto</h5>
-                                        <p class="card-text"><small class="text-muted">Diseñador</small></p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="card mb-3 text-dark bg-light mb-3 border border-secondary p-3 mb-">
-                            <div class="row g-0">
-                                <div class="col-md-3"><img src="resources/assets/internet.png" style="width: 100px" class="" alt="..."></div>
-                                <div class="col-md-6">
-                                    <div class="card-body">
-                                        <h5 class="card-title">Preciado Ayala Jairo</h5>
-                                        <p class="card-text"><small class="text-muted">Documentador</small></p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                    <?php } ?>
                     </div>
                     <div class="col-auto col-md-1"> <!-- segundacolumna--></div>
                     <div class="col-sm-12 col-md-6">  <!-- tercera columna --> 
