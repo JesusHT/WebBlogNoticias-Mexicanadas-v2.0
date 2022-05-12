@@ -2,7 +2,7 @@
 
   $server = 'localhost';
   $username = 'root';
-  $password = '!JesusHT12015';
+  $password = '';
   $database = 'mexicanadas';
 
   try {
